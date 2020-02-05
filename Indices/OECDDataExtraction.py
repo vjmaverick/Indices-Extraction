@@ -76,9 +76,9 @@ def create_DataFrame_from_OECD(country = 'CZE', subject = [], measure = [], freq
         print('Error: %s' % response.status_code)
  
 #Getting subjects id and code and saving      
-from cif import cif
-data1, subjects, measures = cif.createDataFrameFromOECD(countries = ['USA'], dsname = 'MEI', frequency = 'M')
-subjects.to_csv("subjects.csv")        
+#from cif import cif
+#data1, subjects, measures = cif.createDataFrameFromOECD(countries = ['USA'], dsname = 'MEI', frequency = 'M')
+#subjects.to_csv("subjects.csv")        
         
 #Getting all the data for India        
 data = create_DataFrame_from_OECD(country = 'IND')
@@ -95,6 +95,8 @@ x.append('time')
 IndustryProduction=data.loc[:,x]
 IndustryProduction=IndustryProduction[["time","PRINTO01_IXOBSA"]]
 IndustryProduction.columns=["time","Total Industry Production"]
+
+
 
 
 

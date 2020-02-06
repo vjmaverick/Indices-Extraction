@@ -88,6 +88,7 @@ colnames=list(data)
 #Getting GDP data and CPI
 GDPData = data[["time","LORSGPTD_STSA","LORSGPRT_STSA","LORSGPNO_STSA","CCRETT01_IXOB"]]
 GDPData.columns=["time","TrendGDP","RatioToTrendGDP","NormarlisedGDP","CPI"]
+GDPData.to_csv("GDPCPIData.csv",index=False)
 
 #Getting Total Industry Production
 x=list(data.columns[data.columns.str.startswith('PRINTO01')])
@@ -95,11 +96,12 @@ x.append('time')
 IndustryProduction=data.loc[:,x]
 IndustryProduction=IndustryProduction[["time","PRINTO01_IXOBSA"]]
 IndustryProduction.columns=["time","Total Industry Production"]
+IndustryProduction.to_csv("IndustryProduction.csv",index=False)
 
 
 
 
-
+    
 #print(data.columns)
 
 #obs.apply(lambda x: subjectList[int(x['dimensions'][1])]['SNA_TABLE1'], axis = 1)
